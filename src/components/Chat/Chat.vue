@@ -38,7 +38,11 @@ provide("userId", USER_ID);
 
            Tip:  In your function, you can replace 'messages.value' directly ie. 'messages.value = [...messages.value, newMessage]'
       -->           
-      <Compose />
+      <Compose
+      @send="updateChat" 
+      
+      
+      />
     </div>
   </CenterOnPage>
 </template>
