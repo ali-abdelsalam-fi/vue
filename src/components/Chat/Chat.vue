@@ -24,19 +24,11 @@ provide("userId", USER_ID);
 
 function updateChat(newText){
   console.log(newText);
-  // var currentDate = new Date().toISOString().toString();
-  // console.log(currentDate);
-  // console.log(currentDatedate.toLocaleTimeString("fi-FI", {hour: "2-digit",minute: "2-digit",}););
   let newMessage = {  
     content: newText,
     type: "text",
     senderId: USER_ID,
     timestamp: new Date()}
-    // timestamp: new Date(currentDate)}
-    // timestamp: new Date("2022-01-26T11:37:42.947Z")}
-    // timestamp: new Date("2023-02-02T21:08:44.264Z")}
-    // timestamp: currentDate}    
-  //  messages.value = [...messages.value, messages.value[0]]
   messages.value = [...messages.value, newMessage]
 };
 
@@ -63,7 +55,7 @@ function updateChat(newText){
               @send="i => updateChat(i)" 
       -->           
       <Compose
-      @send="text => updateChat(text)" 
+      @send="updateChat" 
       
       />
     </div>
