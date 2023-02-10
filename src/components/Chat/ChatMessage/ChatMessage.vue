@@ -3,6 +3,10 @@
 import { inject } from "vue";
 import ChatBubble from "./ChatBubble.vue";
 import Timestamp from "../../Timestamp.vue";
+import useIcons from "../../../compositionFunctions/useIcons";
+
+// Get the required icons
+const icons = useIcons();
 
 const props = defineProps({
   message: {
@@ -33,6 +37,8 @@ const direction = props.message.senderId === userId ? "right" : "left";
        Hint: See the README's resources section for a link to Vue's directives
              There's something for conditional rendering there!
   -->
+  <img v-else-if="props.message.type === 'emoji'" :src="icons[message.content]" :height="40" :width="40"/>
+
 </template>
 
 <style scoped>

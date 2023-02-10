@@ -17,10 +17,10 @@ const messages = ref(existingMessages);
  * Adds a message to the chat
  * @param {String} content Message content
  */
-function addMessage(content) {
+function addMessage(content,type) {
   const message = {
     content,
-    type: "text", // Hint: you may want to parameterize this
+    type: type, // Hint: you may want to parameterize this
     senderId: USER_ID,
     timestamp: new Date(),
   };

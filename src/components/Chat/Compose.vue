@@ -20,25 +20,31 @@ const emit = defineEmits(["send"]);
 /**
  * Sends a text message.
  */
-function send() {
-  emit("send", text.value); // Hint: You can provide more parameters to 'emit'.
+function send(type) {
+  emit("send", text.value, type); // Hint: You can provide more parameters to 'emit'.
   text.value = "";
 }
+
 </script>
 
 <template>
   <div class="compose">
     <!-- An emoji selector could go here, for example. The choice is yours! -->
-
+    <div class="emoji-selector">
+      <Button icon="shrug" @click="onChange('shrug');send('emoji');" />
+      <Button icon="octopus" @click="onChange('octopus');send('emoji')" />
+      <Button icon="mushroom" @click="onChange('mushroom');send('emoji')" />
+      <Button icon="fire" @click="onChange('fire');send('emoji')" />
+      <Button icon="tent" @click="onChange('tent');send('emoji')" />
+    </div>
     <div class="message-row">
       <Input
         :value="text"
         placeholder="Type a message"
         @change="onChange"
-        @keydown.enter="send"
+        @keydown.enter="send('text')"
       />
-
-      <Button icon="send" @click="send" />
+      <Button icon="send" @click="send('text')" />
     </div>
   </div>
 </template>
