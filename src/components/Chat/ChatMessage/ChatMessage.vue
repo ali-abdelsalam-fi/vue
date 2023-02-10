@@ -25,6 +25,7 @@ const userId = inject("userId");
 
 // Which direction is the bubble originating from?
 const direction = props.message.senderId === userId ? "right" : "left";
+console.log(`direction is ${direction}`)
 </script>
 
 <template>
@@ -37,7 +38,7 @@ const direction = props.message.senderId === userId ? "right" : "left";
        Hint: See the README's resources section for a link to Vue's directives
              There's something for conditional rendering there!
   -->
-  <img v-else-if="props.message.type === 'emoji'" :src="icons[message.content]" :height="40" :width="40"/>
+  <img v-else-if="props.message.type === 'emoji'" :src="icons[message.content]" :direction="direction" :height="40" :width="40"/>
 
 </template>
 
