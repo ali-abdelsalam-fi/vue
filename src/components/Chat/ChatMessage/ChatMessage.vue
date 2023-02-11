@@ -2,6 +2,7 @@
 // A message in the chat.
 import { inject } from "vue";
 import ChatBubble from "./ChatBubble.vue";
+import EmojiBubble from "./EmojiBubble.vue";
 import Timestamp from "../../Timestamp.vue";
 import useIcons from "../../../compositionFunctions/useIcons";
 
@@ -38,7 +39,9 @@ console.log(`direction is ${direction}`)
        Hint: See the README's resources section for a link to Vue's directives
              There's something for conditional rendering there!
   -->
-  <img v-else-if="props.message.type === 'emoji'" :src="icons[message.content]" :direction="direction" :height="40" :width="40"/>
+  <EmojiBubble v-else-if="props.message.type === 'emoji'" :direction="direction">
+    <img :src="icons[message.content]" :height="40" :width="40"/>
+  </EmojiBubble>
 
 </template>
 
