@@ -25,6 +25,7 @@ function send(type) {
   // Hint: Call 'emit' with the correct arguments.
   //       Finally, clear the text input.
   console.log(text.value);
+  console.log(type);
   if(text.value){
     emit("send",text.value, type)  // Hint: You can provide more parameters to 'emit'.
   }
@@ -37,7 +38,7 @@ function send(type) {
   <div class="compose">
     <!-- An emoji selector could go here, for example. The choice is yours! -->
     <div class="emoji-selector">
-      <Button icon="shrug" @click="onChange('shrug');send('emoji');" />
+      <Button icon="shrug" @click="onChange('shrug');send('emoji')" />
       <Button icon="octopus" @click="onChange('octopus');send('emoji')" />
       <Button icon="mushroom" @click="onChange('mushroom');send('emoji')" />
       <Button icon="fire" @click="onChange('fire');send('emoji')" />
@@ -63,7 +64,24 @@ function send(type) {
   gap: 0.5rem;
 }
 /* This targets a nested component with scoped styles*/
+/* 
 .compose:deep(.emoji-selector) {
   margin-bottom: 0.5rem;
 }
+*/
+.emoji-selector {
+  background-color: #fbfaf8;
+  box-shadow: none;
+  border-radius: 20rem;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.emoji-selector:deep(button.button) {
+  box-shadow: none;
+  padding: 0.25rem;
+}
+
+
 </style>

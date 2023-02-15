@@ -27,6 +27,8 @@ const userId = inject("userId");
 // Which direction is the bubble originating from?
 const direction = props.message.senderId === userId ? "right" : "left";
 console.log(`direction is ${direction}`)
+console.log(props.message.type)
+
 </script>
 
 <template>
