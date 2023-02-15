@@ -35,7 +35,6 @@ function send(type) {
 
 <template>
   <div class="compose">
-    <div class="message-row">
     <!-- An emoji selector could go here, for example. The choice is yours! -->
     <div class="emoji-selector">
       <Button icon="shrug" @click="onChange('shrug');send('emoji');" />
