@@ -21,27 +21,37 @@ const emit = defineEmits(["send"]);
 /**
  * Sends a text message.
  */
-function send() {
+function send(type) {
   // Hint: Call 'emit' with the correct arguments.
   //       Finally, clear the text input.
   console.log(text.value);
   if(text.value){
-    emit("send",text.value)
+    emit("send",text.value, type)  // Hint: You can provide more parameters to 'emit'.
   }
-  text.value=""
+  text.value="";
 }
+
 </script>
 
 <template>
   <div class="compose">
     <div class="message-row">
-      <!-- Hint: See if you could send the message by pressing the enter key in the text field.
-                 https://vuejs.org/guide/essentials/event-handling.html#key-modifiers
-      -->
-      <Input :value="text" placeholder="Type a message" @change="onChange" @keyup.enter="send" />
-
-      <!-- Hint: Call the 'send()' function when the button emits a 'click' event. -->
-      <Button icon="send" @click="send"/>
+    <!-- An emoji selector could go here, for example. The choice is yours! -->
+    <div class="emoji-selector">
+      <Button icon="shrug" @click="onChange('shrug');send('emoji');" />
+      <Button icon="octopus" @click="onChange('octopus');send('emoji')" />
+      <Button icon="mushroom" @click="onChange('mushroom');send('emoji')" />
+      <Button icon="fire" @click="onChange('fire');send('emoji')" />
+      <Button icon="tent" @click="onChange('tent');send('emoji')" />
+    </div>
+    <div class="message-row">
+      <Input
+        :value="text"
+        placeholder="Type a message"
+        @change="onChange"
+        @keydown.enter="send('text')"
+      />
+      <Button icon="send" @click="send('text')" />
     </div>
   </div>
 </template>
