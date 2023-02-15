@@ -51,9 +51,6 @@ function updateChat(newText){
 
            Tip:  In your function, you can replace 'messages.value' directly ie. 'messages.value = [...messages.value, newMessage]'
       -->
-      <!--
-              @send="i => updateChat(i)" 
-      -->           
       <Compose
       @send="updateChat" 
       
