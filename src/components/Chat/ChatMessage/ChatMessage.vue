@@ -41,9 +41,8 @@ console.log(props.message.type)
        Hint: See the README's resources section for a link to Vue's directives
              There's something for conditional rendering there!
   -->
-  <EmojiBubble v-else-if="props.message.type === 'emoji'" :direction="direction">
-    <img :src="icons[message.content]" :height="40" :width="40"/>
-  </EmojiBubble>
+  <EmojiBubble v-else :emoji="message.content" :direction="direction" />
+
 
 </template>
 

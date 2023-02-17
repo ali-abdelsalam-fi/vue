@@ -57,6 +57,7 @@ provide("userId", USER_ID);
       @send="addMessage" 
       
       />
+      <p class = "editor">@Ali Abdelsalam</p>
     </div>
   </CenterOnPage>
 </template>
@@ -95,5 +96,7 @@ provide("userId", USER_ID);
     overflow-x: hidden;
     padding-bottom: 0.5rem;
   }
+  .editor{text-align: right;}
+
 }
 </style>
